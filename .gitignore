@@ -1,0 +1,9 @@
+# IDE
+.cache
+.idea
+
+# build
+**build*
+
+# profilers
+nvprof
