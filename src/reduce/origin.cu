@@ -29,7 +29,7 @@ __global__ void reduce2(float *y,float *x,int N)
 	tsum[id] = 0.0f;
 	for(int k=tid;k<N;k+=stride) tsum[id] += x[k];
 	__syncthreads();
-	for(int k=blockDim.x/2; k>0; k /= 2){ // power of 2 reduction loop
+	for(int k=blockDim.x/2; k>0; k /= 2){ // power of 2 reduce loop
 		if(id<k) tsum[id] += tsum[id+k];
 		__syncthreads();
 	}
